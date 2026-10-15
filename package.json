@@ -1,0 +1,39 @@
+{
+  "name": "dsh-hot-refresh",
+  "version": "0.4.0",
+  "description": "One-click hot refresh for DeepSeek Harness client plugins: trigger the official clientModules.rebuilt path from the panel, guard whole-graph reloads behind an explicit flag, and expose replay counters for observability. 面板一键热刷新：从面板触发官方客户端插件热重载，整图重载须显式确认，并暴露重放计数以便观测。",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer"
+      ]
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "hmr",
+    "hot-reload",
+    "refresh"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}

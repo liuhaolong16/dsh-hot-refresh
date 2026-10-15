@@ -1,0 +1,3 @@
+- insert:
+    - id: hot-refresh
+      name: dsh-hot-refresh
