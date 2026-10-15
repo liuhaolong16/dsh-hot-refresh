@@ -35,5 +35,13 @@
   ],
   "engines": {
     "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liuhaolong16/dsh-hot-refresh.git"
+  },
+  "homepage": "https://github.com/liuhaolong16/dsh-hot-refresh#readme",
+  "bugs": {
+    "url": "https://github.com/liuhaolong16/dsh-hot-refresh/issues"
   }
 }
