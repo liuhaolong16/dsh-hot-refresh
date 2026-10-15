@@ -1,0 +1,21 @@
+name: preflight
+
+# 升级/发布前必过门：把本地的判据变成仓库级护栏（别人提 PR 也会被跑到）
+# 用 windows runner：两套门脚本按 Windows 语义写过 `node --check` 与路径断言，本机结论即 CI 结论
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  gate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 升级前必过门 _preflight.cjs
+        run: node _preflight.cjs
+      - name: 客户端形状夹具 _check-client.cjs
+        run: node _check-client.cjs
